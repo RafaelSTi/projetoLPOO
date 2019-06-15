@@ -1,0 +1,161 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String arg[]) {
+        Scanner ler = new Scanner(System.in);
+        ArrayList<String> Menu = new ArrayList<>();
+
+        System.out.println("Realize o cadastro para utilizar o sistema.");
+
+        System.out.println("Digite seu nome:");
+        String nome = ler.nextLine();
+
+        System.out.println("Digite seu SobreNome:");
+        String SobreNome = ler.nextLine();
+
+        System.out.println("Digite seu CPF:");
+        String CPF = ler.nextLine();
+
+        System.out.println("Digite seu telefone:");
+        String Telefone = ler.nextLine();
+
+        System.out.println("Digite seu Email:");
+        String email = ler.nextLine();
+
+        System.out.println("Digite sua data de nascimento:");
+        System.out.println("Dia:");
+        int dia = ler.nextInt();
+        System.out.println("Mês:");
+        int mes = ler.nextInt();
+        System.out.println("Ano:");
+        int ano = ler.nextInt();
+
+//impedir dados invalidos
+        while (dia <= 0) {
+            System.out.println("Dado invalido,Digite o dia novamente:");
+            System.out.println("Dia:");
+            dia = ler.nextInt();
+        }
+        while (mes <= 0) {
+            System.out.println("Dado invalido,Digite o mês novamente:");
+            System.out.println("Mês:");
+            mes = ler.nextInt();
+        }
+        while (ano <= 0) {
+            System.out.println("Dado invalido,Digite o ano novamente:");
+            System.out.println("Ano:");
+            ano = ler.nextInt();
+        }
+        // fim Enquanto
+
+        ArrayList<Cadastrar> Cadastrar1 = new ArrayList();
+        Cadastrar Cadastrar = new Cadastrar(nome, SobreNome, CPF, Telefone, email, ano);
+        Cadastrar1.add(Cadastrar);
+        
+
+        //Menu
+        int escolha=5;
+        do {
+        System.out.println("Menu");
+        Menu.add("1-Consultar dados");
+        Menu.add("2-Alterar cadastro");
+        Menu.add("3-Excluir cadastro");
+        Menu.add("4-buscar itens");
+        Menu.add("5-comparar preços");
+        Menu.add("6-Sair");
+        Menu.add("Ainda não terminamos");
+    
+        //saida do menu para o usuário
+        for (String teste : Menu) {
+            System.out.println(teste);
+        }
+        System.out.println("Escolha sua opção:");
+        escolha = ler.nextInt();
+
+        if (escolha == 1) {
+            Cadastrar.ImprimirNome();
+            Cadastrar.ImprimirSobreNome();
+            Cadastrar.ImprimirIdade();
+            Cadastrar.ImprimirEmail();
+            Cadastrar.ImprimirTelefone();
+            Cadastrar.ImprimirCPF();
+
+        }
+        if (escolha == 2) {
+            System.out.println("Qual dado deseja alterar?");
+            System.out.println("1-Nome" + " " + "2-SobreNome" + " " + "3-Nascimento"
+                    + " " + "4-Email" + " " + "5-Telefone" + " " + "6-CPF");
+            int alteracao = ler.nextInt();
+            switch (alteracao) {
+                case 1:
+                    System.out.println("Digite o novo nome:");
+                    String nome1 = ler.nextLine();
+                    Cadastrar.setNome(nome1);
+                    break;
+                case 2:
+                    System.out.println("Digite o novo Sobrenome:");
+                    SobreNome = ler.nextLine();
+                    Cadastrar.setSobreNome(SobreNome);
+                    break;
+                case 3:
+                    System.out.println("Digite a nova data de nascimento:");
+                    System.out.println("Dia:");
+                    dia = ler.nextInt();
+                    System.out.println("Mês:");
+                    mes = ler.nextInt();
+                    System.out.println("Ano:");
+                    ano = ler.nextInt();
+                    Cadastrar.setNascimento(ano);
+                    break;
+                case 4:
+                    System.out.println("Digite o novo Email:");
+                    email = ler.nextLine();
+                    Cadastrar.setEmail(email);
+                    break;
+                case 5:
+                    System.out.println("Digite o novo telefone:");
+                    Telefone = ler.nextLine();
+                    Cadastrar.setTelefone(Telefone);
+                    break;
+                case 6:
+                    System.out.println("Digite o novo CPF:");
+                    CPF = ler.nextLine();
+                    Cadastrar.setCPF(CPF);
+                    break;
+                default:
+                    System.out.println("Opção invalida!");
+            }
+
+        }
+        if (escolha == 3) {
+            Cadastrar1.remove(Cadastrar);
+            System.out.println("Seu cadastro foi excluído com sucesso.");
+        }
+        if (escolha == 4) {
+            System.out.println("Qual dos itens você deseja buscar?");
+            
+            String nomeprod;
+            double preço;
+            String descricao;
+            String validade;
+            double peso;
+            
+            
+            
+            ArrayList<Produtos> Listaprod = new ArrayList();
+        Produtos listapro = new Produtos(nomeprod,preço,descricao,validade,peso);
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        }
+        while (escolha!=5);
+}
+}
