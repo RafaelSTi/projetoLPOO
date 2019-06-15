@@ -1,0 +1,139 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Principal {
+
+    public static void main(String arg[]) {
+        Scanner ler = new Scanner(System.in);
+        ArrayList<String> Menu = new ArrayList<>();
+
+        System.out.println("Realize o cadastro para utilizar o sistema.");
+
+        System.out.println("Digite seu nome:");
+        String nome = ler.nextLine();
+
+        System.out.println("Digite seu SobreNome:");
+        String SobreNome = ler.nextLine();
+
+        System.out.println("Digite seu CPF:");
+        String CPF = ler.nextLine();
+
+        System.out.println("Digite seu telefone:");
+        String Telefone = ler.nextLine();
+
+        System.out.println("Digite seu Email:");
+        String email = ler.nextLine();
+
+        System.out.println("Digite sua data de nascimento:");
+        System.out.println("Dia:");
+        int dia = ler.nextInt();
+        System.out.println("Mês:");
+        int mes = ler.nextInt();
+        System.out.println("Ano:");
+        int ano = ler.nextInt();
+        
+        
+        ArrayList<Cadastrar> Cadastrar1 = new ArrayList();
+        Cadastrar Cadastrar = new Cadastrar(nome, SobreNome, CPF, Telefone, email, ano);
+        Cadastrar1.add(Cadastrar);
+      
+        Localidade l1 = new Localidade();
+        Produtos p1 = new Produtos();
+       
+       
+        int escolha;
+        System.out.println("Menu");
+        Menu.add("1-Consultar dados");
+        Menu.add("2-Alterar cadastro");
+        Menu.add("3-Excluir cadastro");
+        Menu.add("4-buscar itens");
+        Menu.add("5-Sair");
+        
+        
+        for (String teste : Menu) {
+            System.out.println(teste);
+        }
+        System.out.println("Escolha sua opção:");
+        escolha = ler.nextInt();
+
+        if (escolha == 1) {
+            Cadastrar.ImprimirNome();
+            Cadastrar.ImprimirSobreNome();
+            Cadastrar.ImprimirIdade();
+            Cadastrar.ImprimirEmail();
+            Cadastrar.ImprimirTelefone();
+            Cadastrar.ImprimirCPF();
+        }
+            if (escolha == 2) {
+            System.out.println("Qual dado deseja alterar?");
+            System.out.println("1-Nome" + " " + "2-SobreNome" + " " + "3-Nascimento"
+                    + " " + "4-Email" + " " + "5-Telefone" + " " + "6-CPF");
+            int alteracao = ler.nextInt();
+            if  (alteracao==1) {
+                    System.out.println("Digite o novo nome:");
+                    String nome1 = ler.nextLine();
+                    Cadastrar.setNome(nome1);
+            }
+                if (alteracao==2){
+                    System.out.println("Digite o novo Sobrenome:");
+                    SobreNome = ler.nextLine();
+                    Cadastrar.setSobreNome(SobreNome);
+                }
+                if (alteracao==3){
+                    System.out.println("Digite a nova data de nascimento:");
+                    System.out.println("Dia:");
+                    dia = ler.nextInt();
+                    System.out.println("Mês:");
+                    mes = ler.nextInt();
+                    System.out.println("Ano:");
+                    ano = ler.nextInt();
+                    Cadastrar.setNascimento(ano);
+                }
+                if (alteracao==4){
+                    System.out.println("Digite o novo Email:");
+                    email = ler.nextLine();
+                    Cadastrar.setEmail(email);
+                }
+                if (alteracao==5){
+                    System.out.println("Digite o novo telefone:");
+                    Telefone = ler.nextLine();
+                    Cadastrar.setTelefone(Telefone);
+                }
+                if (alteracao==6){
+                    System.out.println("Digite o novo CPF:");
+                    CPF = ler.nextLine();
+                    Cadastrar.setCPF(CPF);
+                }
+        }
+        if (escolha == 3) {
+            Cadastrar1.remove(Cadastrar);
+            System.out.println("Seu cadastro foi excluído com sucesso.");
+        }
+   
+        if (escolha == 4){
+            System.out.println("Informe sua localização atual.");
+            System.out.printf("1-ASA NORTE\n2-ASA SUL\n3-AGUAS CLARAS\n4-GUARÁ\n5-LAGO NORTE");
+            int opcao = ler.nextInt();
+            switch (opcao) {
+            case 1:
+                l1.mercadosAsaN();
+           break;
+            case 2:
+                l1.mercadosAsaSul();
+                break;
+            case 3:
+                l1.mercadosAguaC();
+                break;
+            case 4:
+                l1.mercadosGuara();
+            case 5:
+                l1.mercadosLago();
+                  
+       }
+         
+        }
+            
+            
+            
+    }
+        }
