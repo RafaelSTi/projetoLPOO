@@ -1,0 +1,88 @@
+public class Mercados {
+
+    private String nomemercado;
+    private String produtos;
+    private String funcionarios;
+    private String endereco;
+    private String compra;
+
+    public void setNomeMercado(String nome) {
+        nomemercado = nome;
+    }
+
+    public void setProdutos(String nome) {
+        produtos = nome;
+    }
+
+    public void setFuncionarios(String nome) {
+        funcionarios = nome;
+    }
+
+    public void setEndereco(String nome) {
+        endereco = nome;
+    }
+
+    public void setCompra(String nome) {
+        compra = nome;
+    }
+
+    public String getNomeMercado() {
+        return nomemercado;
+    }
+
+    public String getProdutos() {
+        return produtos;
+    }
+
+    public String getFuncionarios() {
+        return funcionarios;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public String getCompra() {
+        return compra;
+    }
+    int quantp;
+    double precop;
+    double valorcompra;
+    public void ValorCompra() {
+        valorcompra = (quantp + precop);
+        System.out.println("O valor da compra foi de R$ " + valorcompra);
+    }
+    int opcao;
+    String codigo; 
+    double desconto;
+    public void PromoMercado(){
+            switch (opcao) {
+            case 1:
+           codigo = ("extra");
+           desconto= valorcompra*0.1;
+           System.out.printf("O desconto na sua compra foi de: R$ %.2f\n",desconto);
+           break;
+            case 2:
+                codigo = ("dona de casa");
+                desconto= valorcompra*0.2;
+                System.out.printf("O desconto na sua compra foi de: R$ %.2f\n",desconto);
+                break;
+            case 3:
+                codigo =("carrefour");
+                desconto= valorcompra*0.12;
+                System.out.printf("O desconto na sua compra foi de: R$ %.2f\n",desconto);
+                break;
+            case 4:
+                codigo =("bigbox");
+                desconto= valorcompra*0.13;
+                System.out.printf("O desconto na sua compra foi de: R$ %.2f\n",desconto);
+                break;
+            case 5:
+                codigo =("atacadao");
+                desconto= valorcompra*0.25;
+                System.out.printf("O desconto na sua compra foi de: R$ %.2f\n",desconto);
+                break;
+       }
+        }
+    }
+
